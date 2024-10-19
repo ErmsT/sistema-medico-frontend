@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Medical System Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a frontend system developed for managing relationships between doctors and patients. The application supports different roles (doctor and patient) and provides appropriate dashboards for each user type. The project uses React.js along with Material UI (MUI) for styling, Axios for API calls, and React Router for navigation.
 
-## Available Scripts
+## Features
+- **Authentication**: Login and registration for both doctors and patients.
+- **Doctor Dashboard**: Allows doctors to view available patients, link patients to their profile, and manage linked patients.
+- **Patient Dashboard**: Allows patients to view available doctors and link themselves to a doctor.
+- **Profile Management**: Users can edit their profile information and update their password.
+- **Role-Based Navigation**: Depending on the user role (doctor or patient), they are redirected to the appropriate dashboard after login.
 
-In the project directory, you can run:
+## Components
+1. **AuthPage**: Handles login and registration functionality.
+2. **DoctorDashboard**: Displays patients available for linking and linked patients for doctors.
+3. **PatientDashboard**: Displays available doctors for linking and the current linked doctor for patients.
+4. **UserDrawer**: Contains user profile details and options for editing the profile and logging out.
+5. **DashboardLayout**: Layout component used to structure the dashboard pages.
 
-### `npm start`
+## Context
+- **AuthContext**: Manages user authentication state and provides `login`, `logout`, and `user` context values to the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## API Services
+- **login**: Authenticates the user and retrieves a token.
+- **register**: Registers a new user (either a doctor or a patient).
+- **getDoctors**: Fetches a list of available doctors.
+- **getPatients**: Fetches a list of available patients.
+- **linkDoctor**: Links a patient to a doctor.
+- **linkPatient**: Links a patient to a doctor.
+- **editDoctor**: Edits the doctor's profile information.
+- **editPatient**: Edits the patient's profile information.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Testing
+The project includes unit tests for the following components:
+- **UserDrawer**: Verifies that the user profile information is displayed correctly and the logout functionality works.
+- **AuthPage**: Ensures the login and registration form functionality.
+- **DoctorDashboard**: Tests the correct rendering of available and linked patients for doctors.
+- **PatientDashboard**: Tests the correct rendering of available and linked doctors for patients.
 
-### `npm test`
+## Technologies Used
+- **React**: For building the UI components.
+- **Material UI (MUI)**: For UI styling and components.
+- **Axios**: For making HTTP requests to the backend API.
+- **React Router**: For handling client-side routing.
+- **Jest & React Testing Library**: For writing unit tests.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Run the Project
+1. Install the dependencies:
+   npm install
 
-### `npm run build`
+2. Start the development server:
+npm start
+3. Run the tests
+npm test
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- src/components: Contains reusable UI components such as UserDrawer and DashboardLayout.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- src/pages: Contains the main pages of the application such as AuthPage, DoctorDashboard, and PatientDashboard.
 
-### `npm run eject`
+- src/services: Contains API service functions for making HTTP requests.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- src/contexts: Contains the AuthContext for managing authentication state.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- src/tests: Contains the unit tests for the application.
